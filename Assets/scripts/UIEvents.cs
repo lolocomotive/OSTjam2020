@@ -7,6 +7,6 @@ public class UIEvents : MonoBehaviour
 {
     public void startGame()
     {
-        SceneManager.LoadScene("TutorialScene");
+        SceneManager.LoadScene(1);
     }
 }
