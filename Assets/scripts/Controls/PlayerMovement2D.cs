@@ -6,8 +6,11 @@ public class PlayerMovement2D : MonoBehaviour
     public static float moveSpeed = 50;
     public float jumpForce = 1;
     public Rigidbody2D rb;
+    public Transform wheel1;
+    public Transform wheel2;
     public Transform groundCheck;
     public LayerMask groundLayer;
+    public static int wheelSpeed = 250;
     public static float maxMoveSpeed = 6;
     //The maximum amount of time that can pass between the player leaving the ground and pressing the spacebar to jump
     public float gTime;
@@ -43,6 +46,8 @@ public class PlayerMovement2D : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        wheel1.Rotate(new Vector3(0, 0,- wheelSpeed * Time.fixedDeltaTime * Time.timeScale * Mathf.Abs(rb.velocity.x)));
+        wheel2.Rotate(new Vector3(0, 0,- wheelSpeed * Time.fixedDeltaTime * Time.timeScale * Mathf.Abs(rb.velocity.x)));
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.15f, groundLayer);
         velocity = rb.velocity;
         if (isGrounded)
