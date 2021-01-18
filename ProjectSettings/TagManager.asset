@@ -50,3 +50,6 @@ TagManager:
   - name: Foreground
     uniqueID: 3674288995
     locked: 0
+  - name: Periodic glow
+    uniqueID: 1007131043
+    locked: 0
