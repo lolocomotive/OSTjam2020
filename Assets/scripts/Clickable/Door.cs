@@ -14,6 +14,7 @@ public class Door : MonoBehaviour, Clickable
     {
         if (Vector2.Distance(player.position, this.transform.position) < distanceToClick)
         {
+            Debug.Log("Going to scene "+scene);
             DoorManager.lastDoor = doorID;
             SceneManager.LoadScene(scene);
         }

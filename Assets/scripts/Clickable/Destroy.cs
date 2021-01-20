@@ -5,10 +5,10 @@ using UnityEngine.InputSystem;
 
 public class Destroy : MonoBehaviour, Clickable
 {
+    public int oid;
     public void click()
     {
-        Hothouse.destroy.Add(this.gameObject);
-        Destroy(this.gameObject);
-
+        Hothouse.destroyedObjs.Add(oid);
+        Destroy(gameObject);
     }
 }

@@ -13,10 +13,9 @@ public class CoinClickable : MonoBehaviour, Clickable
     {
         if (Vector2.Distance(player.position, this.transform.position) < distanceToClick)
         {
-            Hothouse.destroy.Add(this.gameObject);
             inv.addItem(new Coin(coinSprite));
             Debug.Log("Click potato");
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
 
     }
