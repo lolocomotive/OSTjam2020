@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement2D : MonoBehaviour
 {
+    public GameObject inv;
     public static float moveSpeed = 50;
     public float jumpForce = 1;
     public Rigidbody2D rb;
@@ -46,8 +47,8 @@ public class PlayerMovement2D : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        wheel1.Rotate(new Vector3(0, 0,- wheelSpeed * Time.fixedDeltaTime * Time.timeScale * Mathf.Abs(rb.velocity.x)));
-        wheel2.Rotate(new Vector3(0, 0,- wheelSpeed * Time.fixedDeltaTime * Time.timeScale * Mathf.Abs(rb.velocity.x)));
+        wheel1.Rotate(new Vector3(0, 0, -wheelSpeed * Time.fixedDeltaTime * Time.timeScale * Mathf.Abs(rb.velocity.x)));
+        wheel2.Rotate(new Vector3(0, 0, -wheelSpeed * Time.fixedDeltaTime * Time.timeScale * Mathf.Abs(rb.velocity.x)));
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.15f, groundLayer);
         velocity = rb.velocity;
         if (isGrounded)
@@ -94,5 +95,12 @@ public class PlayerMovement2D : MonoBehaviour
     private void Start()
     {
         scaleX = transform.localScale.x;
+    }
+    public void toggleInv(InputAction.CallbackContext ctx)
+    {
+        if (ctx.ReadValue<int>() == 1)
+        {
+            inv.SetActive(!inv.activeSelf);
+        }
     }
 }

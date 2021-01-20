@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class StaircaseMovement : MonoBehaviour
 {
-
+    public static bool hasExt = false;
+    public static bool hasBP = false;
     public Transform start;
     public Transform end;
     public Transform player;
@@ -13,6 +14,7 @@ public class StaircaseMovement : MonoBehaviour
     public float minDistance;
     public float speed;
     public float startDistance;
+    public GameObject msg;
     // Start is called before the first frame updat
     // Update is called once per frame
     void FixedUpdate()
@@ -38,7 +40,7 @@ public class StaircaseMovement : MonoBehaviour
     public void checkForStairCase()
     {
         float d = Vector2.Distance(start.position, player.position);
-        if (d < minDistance)
+        if (d < minDistance && hasBP && hasExt)
         {
             if (target == default(Transform))
             {
@@ -47,6 +49,14 @@ public class StaircaseMovement : MonoBehaviour
                 playerRb.simulated = false;
                 player.GetComponent<PlayerMovement2D>().updateDirection(-1);
             }
+        }
+    }
+
+    private void Update()
+    {
+        if(hasBP && hasExt)
+        {
+            msg.SetActive(true);
         }
     }
 

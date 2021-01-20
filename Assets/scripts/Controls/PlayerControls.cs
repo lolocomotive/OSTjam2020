@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/scripts/Controls/PlayerControls.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/Controls/PlayerControls.inputactions'
 
 using System;
 using System.Collections;
@@ -47,6 +47,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""1715b475-1175-4b46-b9f0-53e915d8fd54"",
                     ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Inventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""3f2cdbdb-22a5-47f0-885a-dcbda75ce3e1"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -183,6 +191,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""MousePos"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""24eb703e-710d-4c43-9d50-13e666b629a4"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -256,6 +275,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_MouseClick = m_Player.FindAction("MouseClick", throwIfNotFound: true);
         m_Player_MousePos = m_Player.FindAction("MousePos", throwIfNotFound: true);
+        m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -309,6 +329,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_MouseClick;
     private readonly InputAction m_Player_MousePos;
+    private readonly InputAction m_Player_Inventory;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -317,6 +338,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @MouseClick => m_Wrapper.m_Player_MouseClick;
         public InputAction @MousePos => m_Wrapper.m_Player_MousePos;
+        public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -338,6 +360,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @MousePos.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePos;
                 @MousePos.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePos;
                 @MousePos.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePos;
+                @Inventory.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
+                @Inventory.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
+                @Inventory.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -354,6 +379,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @MousePos.started += instance.OnMousePos;
                 @MousePos.performed += instance.OnMousePos;
                 @MousePos.canceled += instance.OnMousePos;
+                @Inventory.started += instance.OnInventory;
+                @Inventory.performed += instance.OnInventory;
+                @Inventory.canceled += instance.OnInventory;
             }
         }
     }
@@ -409,5 +437,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnMouseClick(InputAction.CallbackContext context);
         void OnMousePos(InputAction.CallbackContext context);
+        void OnInventory(InputAction.CallbackContext context);
     }
 }
