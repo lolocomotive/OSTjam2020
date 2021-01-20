@@ -4,19 +4,30 @@ using UnityEngine;
 
 public class Hothouse : MonoBehaviour
 {
-    public static List<GameObject> destroy = new List<GameObject>();
+
+    [SerializeField] public Transform obj1;
+    [SerializeField] public Transform obj2;
+    public static List<int> destroyedObjs = new List<int>();
     // Start is called before the first frame update
     void Start()
     {
-        foreach(GameObject obj in destroy)
+        foreach (int i in destroyedObjs)
         {
-            Destroy(obj);
+            switch (i)
+            {
+                case 1:
+                    Destroy(obj1.gameObject);
+                    break;
+                case 2:
+                    Destroy(obj2.gameObject);
+                    break;
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
