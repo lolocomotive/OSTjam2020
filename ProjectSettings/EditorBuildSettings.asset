@@ -12,9 +12,21 @@ EditorBuildSettings:
     path: Assets/Scenes/TutorialScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 0
-    path: Assets/Scenes/Lab.unity
+    path: 
     guid: dffa4e3180e2298439b222d06f25b5d8
   - enabled: 1
     path: Assets/Scenes/Hothouse.unity
     guid: 11b38f9ee5e336c4fa30d8466a60516f
+  - enabled: 1
+    path: Assets/Scenes/Lab.unity
+    guid: f4a3801b37abf0c4d820edfba3cad28a
+  - enabled: 1
+    path: Assets/Scenes/livingRoom.unity
+    guid: 13bc280191cf8f04b95415cef10c5842
+  - enabled: 1
+    path: Assets/Scenes/Control room.unity
+    guid: 251e58eb632bb7342a49e89c97831573
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: 4dee8c6db36744049bf7e85f50e17bb3
   m_configObjects: {}
